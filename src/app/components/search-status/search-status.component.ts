@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,4 +10,11 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
 })
 export class SearchStatusComponent {
   status = new FormControl('');
+  @Output() statusChange = new EventEmitter<string>();
+
+  onStatusChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const { value } = input;
+    this.statusChange.emit(value);
+  }
 }

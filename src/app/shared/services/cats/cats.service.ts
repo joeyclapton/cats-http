@@ -13,7 +13,8 @@ export class CatsService {
 
   constructor() {}
 
-  getStatus(status: string): Observable<Blob> {
-    return this.http.get<Blob>(this.url);
+  getStatus(status: string): Observable<File> {
+    console.log(this.http.get(`${this.url}/cat/says/hello`));
+    return this.http.get<File>(`${this.url}/cat/says/hello`, {});
   }
 }

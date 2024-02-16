@@ -1,10 +1,11 @@
 <form>
   <div>
-    <label for="Status">HTTP status</label>
+    <label for="Status">Frase do gato</label>
     <input
       type="text"
-      placeholder="Digite o HTTP status"
+      placeholder="Digite a frase para o gatinho"
       [formControl]="status"
+      (input)="onStatusChange($event)"
     />
   </div>
 </form>
